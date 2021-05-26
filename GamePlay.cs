@@ -5,7 +5,7 @@ namespace zaba
 {
     public class GamePlay
     {
-        static Timer _time = new Timer(TimerSpeed.deltaNormal);
+        static Timer _time = new Timer(TimerSpeed.deltaEasy);
         static Snake _snake = new Snake();
         static Apple _apple = new Apple();
         static Player _player = new Player();
@@ -48,13 +48,13 @@ namespace zaba
             return;
         }
         
-        static void SetTimer()
+        static void SetTimer(int i)
         {
             _time.Elapsed += RepGame;
             _time.AutoReset = true;
             _time.Enabled = true;
         }
-        
+
         public static Player PlayerInfo()
         {
             _player._score = _snake._lenght;
@@ -83,7 +83,7 @@ namespace zaba
             WritePlayersName();
             SetBorders();
             _apple.AddApple();
-            SetTimer();
+            SetTimer(TimerSpeed.deltaEasy);
             while (_snake._isAlive == true)
             {
                 if (Console.KeyAvailable)

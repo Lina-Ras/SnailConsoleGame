@@ -10,8 +10,8 @@
     static public class StartCoords
     {
         public static int xPos { get; } = 30;
-        public static int yPos { get; } = 10;
-        public static int lenght { get; } = 3;
+        public static int yPos { get; } = 14;
+        public static int lenght { get; } = 8;
     }
     
     static public class cWnd
@@ -23,6 +23,6 @@
     }
     static public class TimerSpeed
     {
-        public static int deltaNormal { get; }= 200;
+        public static int deltaEasy { get; } = 200;
     }
 }

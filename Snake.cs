@@ -125,8 +125,10 @@ namespace zaba
                     }
                 return false;
             }
-            public void Rotation(ConsoleKey key) {
-                switch (_direction)
+
+            public void Rotation(ConsoleKey key)
+            {
+            switch (_direction)
                 {
                     case Direction.RIGHT:
                     case Direction.LEFT:
