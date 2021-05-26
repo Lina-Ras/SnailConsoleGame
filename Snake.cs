@@ -81,11 +81,9 @@ namespace zaba
 
             public void Grow()
             {
-                int ky = NewY(); 
-                int kx = NewX();
                 Coords tail = new Coords();
-                tail.x = _body[_lenght-1].x + kx;
-                tail.y = _body[_lenght-1].y + ky;
+                tail.x = _body[_lenght-1].x;
+                tail.y = _body[_lenght-1].y;
                 _body.Insert(_lenght-1, tail);
                 ++_lenght;
             }
@@ -93,8 +91,15 @@ namespace zaba
             public void Eat(Apple apple)                                        
             {                                                                                       
                 if (_body[0].x == apple._coordA.x && _body[0].y == apple._coordA.y)     
-                {                                                                                   
-                    apple.AddApple();                                                               
+                {
+                    apple.AddApple();
+                    foreach (Coords s in _body)  //Праверка: ці не дадаўся яблык на цела змяі
+                    {
+                        if (s.x == apple._coordA.x && s.y == apple._coordA.y)
+                        {
+                            apple.AddApple();
+                        }
+                    }
                     Grow();                                                                   
                 }                                                                                   
                                                                                         

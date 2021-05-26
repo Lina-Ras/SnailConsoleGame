@@ -6,8 +6,6 @@ namespace zaba
     {
         public Coords _coordA { set; get; } = new Coords();
 
-        private bool _exist { set; get; }
-
         public Apple(){ }
         
         public void DrawApple()
@@ -19,8 +17,6 @@ namespace zaba
             Random rnd = new Random();
             _coordA.x = rnd.Next(2, cWnd.xmax - 2);
             _coordA.y = rnd.Next(4, cWnd.ymax - 3);
-            DrawApple();
-            _exist = true;
             return;
         }
     }

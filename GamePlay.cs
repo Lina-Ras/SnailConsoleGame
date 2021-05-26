@@ -64,16 +64,15 @@ namespace zaba
         static void RepGame(object obj,  ElapsedEventArgs e)
         {
             _snake.Moving();
-            _snake.DrawSnake();
-            _apple.DrawApple();
-            _snake.Eat(_apple);
-            WriteScore();
             if (_snake.Bite() || _snake.Wall())
             {
                 _snake._isAlive = false;
                 _time.Enabled = false;
             }
-
+            _snake.Eat(_apple);
+            _snake.DrawSnake();
+            _apple.DrawApple();
+            WriteScore();
             return;
         }
 
