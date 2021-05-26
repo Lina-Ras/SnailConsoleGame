@@ -27,6 +27,21 @@ namespace zaba
 
         static void AddPlayer(Player player)
         {
+            foreach (Player s in _playersList)
+            {
+                if (player._name == s._name)
+                {
+                    if (player._score > s._score)
+                    {
+                        _playersList.Remove(s);
+                        break;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
             if (_playersList.Count == _playersList.Capacity)
             {
                 if (player._score > _playersList.Last()._score)
