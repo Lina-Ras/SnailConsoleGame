@@ -42,7 +42,6 @@ namespace zaba
 
             WriteEndMenu();
             Console.ReadKey();
-            return;
         }
     }
 }

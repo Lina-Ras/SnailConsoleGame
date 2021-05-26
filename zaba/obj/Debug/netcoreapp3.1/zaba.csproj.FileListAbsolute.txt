@@ -1,0 +1,13 @@
+D:\infa\2c\zaba\zaba\bin\Debug\netcoreapp3.1\zaba.exe
+D:\infa\2c\zaba\zaba\bin\Debug\netcoreapp3.1\zaba.deps.json
+D:\infa\2c\zaba\zaba\bin\Debug\netcoreapp3.1\zaba.runtimeconfig.json
+D:\infa\2c\zaba\zaba\bin\Debug\netcoreapp3.1\zaba.runtimeconfig.dev.json
+D:\infa\2c\zaba\zaba\bin\Debug\netcoreapp3.1\zaba.dll
+D:\infa\2c\zaba\zaba\bin\Debug\netcoreapp3.1\zaba.pdb
+D:\infa\2c\zaba\zaba\obj\Debug\netcoreapp3.1\zaba.csprojAssemblyReference.cache
+D:\infa\2c\zaba\zaba\obj\Debug\netcoreapp3.1\zaba.AssemblyInfoInputs.cache
+D:\infa\2c\zaba\zaba\obj\Debug\netcoreapp3.1\zaba.AssemblyInfo.cs
+D:\infa\2c\zaba\zaba\obj\Debug\netcoreapp3.1\zaba.csproj.CoreCompileInputs.cache
+D:\infa\2c\zaba\zaba\obj\Debug\netcoreapp3.1\zaba.dll
+D:\infa\2c\zaba\zaba\obj\Debug\netcoreapp3.1\zaba.pdb
+D:\infa\2c\zaba\zaba\obj\Debug\netcoreapp3.1\zaba.genruntimeconfig.cache
