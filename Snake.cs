@@ -1,34 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Threading;
-using System.Text;
 
 namespace zaba
 {
     public class Snake
         {
-            public List<Coords> body = new List<Coords>() { };  //0 - head, lenght-1 = tail
-            public int lenght { set; get;}
-            Direction direction;
-            public bool IsAlive { set; get; } = true;
+            public List<Coords> _body = new List<Coords>() { };  //0 - head, lenght-1 = tail
+            public int _lenght { set; get;}
+            Direction _direction;
+            public bool _isAlive { set; get; } = true;
 
             public Snake() {
                 for (int fy = 0; fy < StartCoords.lenght; ++fy)
                 {
                     Coords a = new Coords(StartCoords.xPos, StartCoords.yPos-fy);
-                    body.Add(a);
+                    _body.Add(a);
                 }
-                lenght = body.Count;
-                direction = Direction.DOWN;
-                IsAlive = true;
+                _lenght = _body.Count;
+                _direction = Direction.DOWN;
+                _isAlive = true;
             }
             public void DrawSnake()
             {
-                body[0].SetChar(CharTable.Head);
-                for (int i = 1; i<lenght; ++i)
+                _body[0].SetChar(CharTable.Head);
+                for (int i = 1; i<_lenght; ++i)
                 {
-                    body[i].SetChar(CharTable.Body);
+                    _body[i].SetChar(CharTable.Body);
                 }
                 return;
             }
@@ -36,7 +33,7 @@ namespace zaba
             public int NewY()
             {
                 int ky = 0;
-                switch (direction)
+                switch (_direction)
                 {
                     case Direction.DOWN:
                     {
@@ -54,7 +51,7 @@ namespace zaba
             public int NewX()
             {
                 int kx = 0;
-                switch (direction)
+                switch (_direction)
                 {
                     case Direction.LEFT:
                     {
@@ -73,12 +70,12 @@ namespace zaba
             {
                 int ky = NewY(); 
                 int kx = NewX();
-                body[lenght-1].DeleteChar();
-                body.RemoveAt(lenght-1);
+                _body[_lenght-1].DeleteChar();
+                _body.RemoveAt(_lenght-1);
                 Coords head = new Coords();
-                head.x = body[0].x + kx;
-                head.y = body[0].y + ky;
-                body.Insert(0, head);
+                head.x = _body[0].x + kx;
+                head.y = _body[0].y + ky;
+                _body.Insert(0, head);
                 return;
             }
 
@@ -87,16 +84,27 @@ namespace zaba
                 int ky = NewY(); 
                 int kx = NewX();
                 Coords tail = new Coords();
-                tail.x = body[lenght-1].x + kx;
-                tail.y = body[lenght-1].y + ky;
-                body.Insert(lenght-1, tail);
-                ++lenght;
+                tail.x = _body[_lenght-1].x + kx;
+                tail.y = _body[_lenght-1].y + ky;
+                _body.Insert(_lenght-1, tail);
+                ++_lenght;
             }
+            
+            public void Eat(Apple apple)                                        
+            {                                                                                       
+                if (_body[0].x == apple._coordA.x && _body[0].y == apple._coordA.y)     
+                {                                                                                   
+                    apple.AddApple();                                                               
+                    Grow();                                                                   
+                }                                                                                   
+                                                                                        
+                return;                                                                             
+            }                                                                                       
             public bool Bite()
             {
-                for (int i = 1; i < lenght; ++i)
+                for (int i = 1; i < _lenght; ++i)
                 {
-                    if (body[0].x == body[i].x && body[0].y == body[i].y)
+                    if (_body[0].x == _body[i].x && _body[0].y == _body[i].y)
                     {
                         return true;
                     }
@@ -105,32 +113,32 @@ namespace zaba
             }
             public bool Wall()
             {
-                if (body[0].x == cWnd.xmin || body[0].x == cWnd.xmax
-                    || body[0].y == cWnd.ymin || body[0].y == cWnd.ymax)
+                if (_body[0].x == cWnd.xmin || _body[0].x == cWnd.xmax
+                    || _body[0].y == cWnd.ymin || _body[0].y == cWnd.ymax)
                     {
                         return true;
                     }
                 return false;
             }
             public void Rotation(ConsoleKey key) {
-                switch (direction)
+                switch (_direction)
                 {
                     case Direction.RIGHT:
                     case Direction.LEFT:
                     {
                         if (key == ConsoleKey.DownArrow)
-                            direction = Direction.DOWN;
+                            _direction = Direction.DOWN;
                         else if (key == ConsoleKey.UpArrow)
-                            direction = Direction.UP;
+                            _direction = Direction.UP;
                         break;
                     }
                     case Direction.UP:
                     case Direction.DOWN:
                     {
                         if (key == ConsoleKey.LeftArrow)
-                            direction = Direction.LEFT;
+                            _direction = Direction.LEFT;
                         else if (key == ConsoleKey.RightArrow)
-                            direction = Direction.RIGHT;
+                            _direction = Direction.RIGHT;
                         break;
                     }
                 }
